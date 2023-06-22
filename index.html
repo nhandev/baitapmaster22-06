@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BÀI TẬP JS BUỔI 2 - 3</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="d-flex flex-column align-items-center">
+        <!-- Bài tập 1: Quản lý tuyển sinh -->
+        <div class="card w-25 my-5">
+            <div class="card-header">
+                <h3>Bài tập 1: Quản lý tuyển sinh</h3>
+            </div>
+            <div class="card-body">
+                <p>Điểm chuẩn</p>
+                <input type="text" class="form-control mb-3 w-100" id="avgpoint" />
+                <select id="area" class="form-control">
+                    <option value="0">Chon khu vuc</option>
+                    <option value="2">A</option>
+                    <option value="1">B</option>
+                    <option value="0.5">C</option>
+                </select>
+                <select id="person" class="form-control my-4">
+                    <option value="0">Chon doi tuong</option>
+                    <option value="2.5">1</option>
+                    <option value="1.5">2</option>
+                    <option value="1">3</option>
+                </select>
+                <p>Điểm môn thứ I</p>
+                <input type="text" class="form-control mb-3 w-100" id="point1" />
+                <p>Điểm môn thứ II</p>
+                <input type="text" class="form-control mb-3 w-100" id="point2" />
+                <p>Điểm môn thứ III</p>
+                <input type="text" class="form-control mb-3 w-100" id="point3" />
+                <button class="btn btn-success" onclick="baitap1()">Số Điểm</button>
+            </div>
+            <div class="card-footer">
+                <p>kết quả <span id="tongDiem"></span></p>
+            </div>
+        </div>
+
+        <!-- Bài tập 2 : Tính tiền điẹn-->
+        <div class="card w-25 my-5">
+            <div class="card-header">
+                <h3>Bài tập 2: Tính tiền điện</h3>
+            </div>
+            <div class="card-body">
+                <input type="text" class="form-control mb-3 w-100 my-3" placeholder="Nhập ten" id="name" />
+                <input type="text" class="form-control mb-3 w-100 my-3" placeholder="Nhập số điện tiêu thụ"
+                    id="electric" />
+
+                <button class="btn btn-success" onclick="baitap2()">
+                    Tính giá tiền
+                </button>
+            </div>
+            <div class="card-footer">
+                <p>Số tiền phải thanh toán : <span id="soTien"></span></p>
+            </div>
+        </div>
+
+        <!--Bài tập 3 :Tính thuế thu nhập cá nhân-->
+        <div class="card w-25 my-5">
+            <div class="card-header">
+                <h3>Bài tập 3: Tính thuế thu nhập cá nhân</h3>
+            </div>
+            <div class="card-body">
+                <input type="text" class="form-control mb-3 w-100 my-3" placeholder="Nhập tên" id="name2" />
+                <input type="text" class="form-control mb-3 w-100 my-3" placeholder="Tổng thu nhập cả năm"
+                    id="total" />
+                    <input type="text" class="form-control mb-3 w-100 my-3" placeholder="Số người phụ thuộc" id="human" />
+                <button class="btn btn-success" onclick="baitap3()">
+                    Tính tiền thuế
+                </button>
+            </div>
+            <div class="card-footer">
+                <p>Số tiền thuế là: <span id="tinhThue"></span> VNĐ</p>
+            </div>
+        </div>
+
+        
+          <!--  tính tiền cáp -->
+      
+          <div class="form-control w-75 mx-auto d-grid mt-5 ">
+            <h1 class="text-center"> Tính Tiền Cáp</h1>
+            <label for="input-code">Nhập Mã Khách Hàng</label>
+            <input type="text" name="" id="input-code">
+            <label for="typeCustomer"> Chọn loại khách hàng</label>
+            <select name="" id="typeCustomer" onchange="changeSelection()">
+              <option value=""></option>
+              <option value="business">Doanh Nghiệp</option>
+              <option value="person">Cá Nhân</option>
+            </select>
+            <div id="input-connect" style="display: none;">
+              <label for="enterConnect"> Nhập Số kết nối</label>
+              <input type="number" id="enterConnect" class="d-block">
+            </div>
+            <label for="enterVip">Số Kênh Cao Cấp</label>
+            <input type="number" name="" id="enterVip">
+            <button class="btn btn-primary d-block my-2" onclick="resultInter()"> Số
+              tiền phải trả</button>
+            <div class="ps-2 border m-2">
+              <h4>Mã khách hàng</h4>
+              <div id="output-Inter"></div>
+            </div>
+            </div>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+    <!-- Main js -->
+    <script src="./index.js"></script>
+</body>
+
+</html>
